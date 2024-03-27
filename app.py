@@ -2,6 +2,7 @@ from flask import Flask,  jsonify
 import requests
 from bs4 import BeautifulSoup
 from flask_cors import CORS
+const port = process.env.PORT || 4000;
 
 def scrape_data():
     url = 'https://www.moneycontrol.com/stocks/marketstats/nsemact1/index.php'
@@ -95,5 +96,9 @@ def index1(number):
     data = get_individual_stock_data(number)
     return jsonify(data)
 
-if __name__ == '__main__':
-    app.run(host='0.0.0.0', port=10000, debug=True)
+# if __name__ == '__main__':
+#     app.run(host='0.0.0.0', port=10000, debug=True)
+
+app.listen(port, () => {
+  console.log(`Example app listening on port ${port}`)
+})
