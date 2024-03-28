@@ -2,7 +2,9 @@ from flask import Flask,  jsonify
 import requests
 from bs4 import BeautifulSoup
 from flask_cors import CORS
-const port = process.env.PORT || 4000;
+import os
+
+port = int(os.environ.get('PORT', 4000))
 
 def scrape_data():
     url = 'https://www.moneycontrol.com/stocks/marketstats/nsemact1/index.php'
